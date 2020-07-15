@@ -1,0 +1,8 @@
+{
+    "env": {
+        "MONGO_USER": "team",
+        "MONGO_PASSWORD": "quaran",
+        "MONGO_DB": "dev",
+        "PORT": 5000
+    }
+}
