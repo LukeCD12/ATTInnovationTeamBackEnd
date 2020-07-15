@@ -85,12 +85,11 @@ module.exports = {
     },
     employeeLogin: async (args) => {
         const employee = await Employee.findOne({username: args.username})
-        const type = employee.manager ? "manager" : "employee"
         if (!employee) {
             throw new Error(`Invalid Credentials`)
         }
+        const type = employee.manager ? "manager" : "employee"
         const isEqual = await bcrypt.compare(args.password, employee.password)
-
         if (!isEqual) {
             throw new Error(`Invalid Credentials ${employee.password} : ${args.password} : ${isEqual}`)
         }
