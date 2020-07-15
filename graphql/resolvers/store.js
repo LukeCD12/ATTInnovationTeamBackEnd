@@ -46,7 +46,7 @@ module.exports = {
                 throw new Error(`Unauthorized`)
             }
             const store = await Store.findByIdAndUpdate(
-                {_id: args.updateCount.store},
+                {_id: args.updateCount.storeID},
                 {capacity: args.updateCount.capacity,
                 maskCount: args.updateCount.maskCount,
                 numCustomers: args.updateCount.numCustomers})
