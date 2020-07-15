@@ -66,6 +66,7 @@ module.exports = buildSchema(`
     type RootQuery {
         stores: [Store!]!
         users: [User!]!
+        findUser(user: ID!): User!
         employees(store: ID!): [Employee!]
         findEmployee(employee: ID!): Employee!
         userLogin(username: String!, password: String!): Auth!
