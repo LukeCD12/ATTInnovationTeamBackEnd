@@ -116,11 +116,10 @@ module.exports = {
         if (!user) {
             throw new Error(`Invalid Credentials`)
         }
-        const before = user.password
         const isEqual = await bcrypt.compare(args.password, user.password)
-        /*if (!isEqual) {
-            throw new Error(`Invalid Credentials ${before} : ${user.password} : ${args.password} : ${isEqual}`)
-        }*/
+        if (!isEqual) {
+            throw new Error(`Invalid Credentials`)
+        }
         const token = jwt.sign({userID: user.id, username: user.username, type: 'user'}, 'testprivatekey', {expiresIn: '2h'})
         return { userID: user.id, token: token, expiration: 2, type: 'user'}
     }
