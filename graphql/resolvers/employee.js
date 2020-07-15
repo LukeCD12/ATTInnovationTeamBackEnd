@@ -38,12 +38,12 @@ module.exports = {
             }
             const existingEmployee = await Employee.findOne({username: args.employeeInput.username})
             if (existingEmployee) {
-                throw new Error(`Employee username "${args.employeeInput.username}"already exists!`)
+                throw new Error(`Employee username "${args.employeeInput.username}" already exists!`)
             }
             const store = await Store.findById(args.employeeInput.store).populate('employeeList')
             console.log(store)
             if (!store) {
-                throw new Error(`Store ID "${args.employeeInput.store}"does not match any store in our records!`)
+                throw new Error(`Store ID "${args.employeeInput.store}" does not match any store in our records!`)
             }
             const hashedPW = await bcrypt.hash(args.employeeInput.password, 12)
             const employee = new Employee({
