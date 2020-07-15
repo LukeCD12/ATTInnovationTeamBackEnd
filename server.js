@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     }
     next()
 })
-//app.use(isAuth)
+app.use(isAuth)
 app.use('/graphql', graphQLMiddle({
     schema: graphQLSchema,
     rootValue: graphQLResolvers,
