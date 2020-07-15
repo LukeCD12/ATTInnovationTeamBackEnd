@@ -9,6 +9,6 @@
 *.orig.*
 *web-build/
 *web-report/
-
+*nodemon.json
 # macOS
 *.DS_Store
