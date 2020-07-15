@@ -67,6 +67,7 @@ module.exports = buildSchema(`
         stores: [Store!]!
         users: [User!]!
         employees(store: ID!): [Employee!]
+        findEmployee(employee: ID!): Employee!
         userLogin(username: String!, password: String!): Auth!
         employeeLogin(username: String!, password: String!): Auth!
     }

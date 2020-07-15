@@ -17,6 +17,20 @@ module.exports = {
             throw err
         }
     },
+    findEmployee: async (args, req) => {
+        try {
+            if (!req.isAuth || req.type === 'user') {
+                throw new Error('Unauthorized')
+            }
+            const employee = await Employee.findOne({_id: args.employee})
+            if (!employee) {
+                throw new Error(`Employee ${args.employee} not found!`)
+            }
+            return {...employee._doc, password: null}
+        } catch(err) {
+            throw err
+        }
+    },
     createEmployee: async (args, req) => {
         try {
             if (!req.isAuth || req.type !== "manager") {
