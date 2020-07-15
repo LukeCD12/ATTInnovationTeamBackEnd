@@ -17,9 +17,9 @@ module.exports = {
     },
     findUser: async (args, req) => {
         try {
-            /*if (!req.isAuth) {
+            if (!req.isAuth) {
                 throw new Error('Unauthorized')
-            }*/
+            }
             const user = await User.findOne({_id: args.user})
             if (!user) {
                 throw new Error(`Employee ${args.user} not found!`)
