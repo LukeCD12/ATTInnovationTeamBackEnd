@@ -33,7 +33,7 @@ module.exports = buildSchema(`
         userID: ID!
         token: String!
         expiration: Int!
-        Type: String!
+        type: String!
     }
 
     input EmployeeInput {
