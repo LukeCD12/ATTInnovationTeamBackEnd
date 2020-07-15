@@ -90,8 +90,9 @@ module.exports = {
             throw new Error(`Invalid Credentials`)
         }
         const isEqual = await bcrypt.compare(args.password, employee.password)
+
         if (!isEqual) {
-            throw new Error(`Invalid Credentials ${employee.password} : ${args.password}`)
+            throw new Error(`Invalid Credentials ${employee.password} : ${args.password} : ${isEqual}`)
         }
         const token = jwt.sign({userID: employee.id, username: employee.username, type: type}, 'testprivatekey', {expiresIn: '8h'})
         return { userID: employee.id, token: token, expiration: 8, type: type}
