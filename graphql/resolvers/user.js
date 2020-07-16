@@ -122,13 +122,5 @@ module.exports = {
         }
         const token = jwt.sign({userID: user.id, username: user.username, type: 'user'}, 'testprivatekey', {expiresIn: '2h'})
         return { userID: user.id, token: token, expiration: 2, type: 'user'}
-    },
-    creatorToken: async () => {
-        try {
-            const token = jwt.sign({userID: null, username: null, type: 'create'}, 'testprivatekey', {expiresIn: '1h'})
-            return { userID: null, token: token, expiration: 1, type: 'create'}
-        } catch (err) {
-            throw err
-        }
     }
 }

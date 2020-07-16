@@ -41,7 +41,6 @@ module.exports = {
                 throw new Error(`Employee username "${args.employeeInput.username}" already exists!`)
             }
             const store = await Store.findById(args.employeeInput.store).populate('employeeList')
-            console.log(store)
             if (!store) {
                 throw new Error(`Store ID "${args.employeeInput.store}" does not match any store in our records!`)
             }
@@ -50,7 +49,7 @@ module.exports = {
                 name: args.employeeInput.name,
                 username: args.employeeInput.username,
                 password: hashedPW,
-                boolean: args.employeeInput.manager,
+                manager: args.employeeInput.manager,
                 store: store
             })
             store.employeeList.push(employee)
