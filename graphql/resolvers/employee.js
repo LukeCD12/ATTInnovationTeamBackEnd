@@ -33,9 +33,6 @@ module.exports = {
     },
     createEmployee: async (args, req) => {
         try {
-            if (!req.Auth || (req.type !== "manager" && req.type !== 'admin')) {
-                throw new Error('Unauthorized!')
-            }
             /*if (!req.isAuth || req.type !== "manager") {
                 throw new Error('Unauthorized!')
             }*/
