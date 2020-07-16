@@ -19,7 +19,7 @@ module.exports = {
     },
     findEmployee: async (args, req) => {
         try {
-            if (!req.isAuth || req.type === 'user') {
+            if (!req.isAuth) {
                 throw new Error('Unauthorized')
             }
             const employee = await Employee.findOne({_id: args.employee}).populate('store')
