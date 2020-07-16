@@ -33,9 +33,12 @@ module.exports = {
     },
     createEmployee: async (args, req) => {
         try {
-            if (!req.isAuth || req.type !== "manager") {
+            if (!req.Auth || (req.type !== "manager" && req.type !== 'admin')) {
                 throw new Error('Unauthorized!')
             }
+            /*if (!req.isAuth || req.type !== "manager") {
+                throw new Error('Unauthorized!')
+            }*/
             const existingEmployee = await Employee.findOne({username: args.employeeInput.username})
             if (existingEmployee) {
                 throw new Error(`Employee username "${args.employeeInput.username}" already exists!`)

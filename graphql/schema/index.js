@@ -71,6 +71,7 @@ module.exports = buildSchema(`
         findEmployee(employee: ID!): Employee!
         userLogin(username: String!, password: String!): Auth!
         employeeLogin(username: String!, password: String!): Auth!
+        creatorToken: Auth!
     }
 
     type RootMutation {
