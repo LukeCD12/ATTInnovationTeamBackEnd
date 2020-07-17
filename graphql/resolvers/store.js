@@ -42,9 +42,6 @@ module.exports = {
             if (!req.isAuth || req.type === "user") {
                 throw new Error('Unauthorized!')
             }
-            if (!req.isAuth || req.type !== 'employee') {
-                throw new Error(`Unauthorized`)
-            }
             const store = await Store.findByIdAndUpdate(
                 {_id: args.updateCount.storeID},
                 {capacity: args.updateCount.capacity,
